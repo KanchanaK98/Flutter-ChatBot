@@ -9,7 +9,7 @@ class ChatRepo
   static chatTextGenerationRepo(List<ChatMessageModel> previousmessages) async{
     try{
       Dio dio = Dio();
-      final response = dio.post("https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:generateContent?key=${apiKey}",
+      final response = await dio.post("https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:generateContent?key=${apiKey}",
       data: {"contents": previousmessages.map((e) => e.toMap()).toList(),
       "generationConfig": {
         "temperature": 0.9,
