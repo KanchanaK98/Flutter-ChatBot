@@ -34,11 +34,12 @@ class _HomePageState extends State<HomePage> {
               image: DecorationImage(opacity: 0.5,image: AssetImage("assets/bg.jpg"),fit: BoxFit.cover)
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   height: 100,
-                  child: Row(
+                  child: const Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -61,8 +62,21 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ));
                 })),
-                if(chatBloc.generating)
-                Container(height: 80,width: 80,child: Lottie.asset('assets/loader.json')),
+                if (chatBloc.generating)
+                Row(
+                  children: [
+                    Container(
+                      height: 80,
+                      width: 80,
+                      child: Lottie.asset('assets/loader.json'),
+                    ),
+                    SizedBox(width: 25),
+                    Text(
+                      "Loading ...",
+                      textAlign: TextAlign.left,
+                    ),
+                  ],
+                ),
                 Container(padding: EdgeInsets.symmetric(vertical: 12,horizontal: 12),
                 child: Row(children: [
                   Expanded(child: TextField(
