@@ -85,6 +85,9 @@ flutter:
     - family: MadimiOne
       fonts:
         - asset: assets/MadimiOne-Regular.ttf
+    - family: KodeMono
+      fonts:
+        - asset: assets/KodeMono-Bold.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
