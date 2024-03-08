@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:chatbot_geminiai/models/chat_message_model.dart';
 import 'package:lottie/lottie.dart';
 
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -16,6 +17,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final ChatBlocBloc chatBloc = ChatBlocBloc();
   TextEditingController textEditingController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -24,6 +26,24 @@ class _HomePageState extends State<HomePage> {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
+        floatingActionButton: Padding(
+          padding: EdgeInsets.only(top: 20.0),
+          child: FloatingActionButton(
+            onPressed: () {
+              Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => super.widget));
+                },
+            tooltip: 'Refresh',
+            child: const Icon(Icons.refresh),
+            hoverColor: Color.fromARGB(255, 6, 152, 120),
+            backgroundColor: Color.fromARGB(255, 207, 52, 21),
+            shape: CircleBorder(),
+            foregroundColor: Color.fromARGB(255, 0, 0, 0),
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
         body: BlocConsumer<ChatBlocBloc,ChatBlocState>(
           bloc: chatBloc,
           

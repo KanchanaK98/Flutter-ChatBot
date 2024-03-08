@@ -22,7 +22,7 @@ bool generating = false;
     emit(ChatSuccessState(messages: messages));
     generating = true;
      String generatedText = await ChatRepo.chatTextGenerationRepo(messages);
-     if(generatedText.length>0)
+     if(generatedText.isNotEmpty)
      {
       messages.add(ChatMessageModel(role: 'model', parts: [ChatPartModel(text: generatedText)]));
       emit(ChatSuccessState(messages: messages));
