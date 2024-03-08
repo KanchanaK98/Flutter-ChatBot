@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
             tooltip: 'Refresh',
             child: const Icon(Icons.refresh),
             hoverColor: Color.fromARGB(255, 6, 152, 120),
-            backgroundColor: Color.fromARGB(255, 207, 52, 21),
+            backgroundColor: Colors.lightBlue[600],
             shape: CircleBorder(),
             foregroundColor: Color.fromARGB(255, 0, 0, 0),
           ),
@@ -79,9 +79,9 @@ class _HomePageState extends State<HomePage> {
                     itemCount: messages.length,
                     itemBuilder: (context,index){
                     return Container(
-                      margin: messages[index].role == 'user'? const EdgeInsets.only(bottom: 6,left: 5,right: 50):const EdgeInsets.only(bottom: 6,left: 50,right: 5),
+                      margin: messages[index].role == 'user'? const EdgeInsets.only(bottom: 6,left: 10,right: 50):const EdgeInsets.only(bottom: 6,left: 50,right: 10),
                       padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(borderRadius:messages[index].role == 'user'? BorderRadius.circular(35):BorderRadius.circular(25),color:messages[index].role == 'user'? Color.fromARGB(255, 135, 174, 234):Color.fromARGB(255, 46, 189, 221)),
+                      decoration: BoxDecoration(borderRadius:messages[index].role == 'user'? BorderRadius.circular(35):BorderRadius.circular(25),color:messages[index].role == 'user'? Color.fromARGB(255, 135, 174, 234):Color.fromARGB(255, 114, 120, 197)),
                       child: 
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,20 +131,12 @@ class _HomePageState extends State<HomePage> {
               ),
               );
               default:
-              return SizedBox();
-              // return Container(
-              //         margin: const EdgeInsets.only(bottom: 6,left: 50,right: 5),
-              //         padding: const EdgeInsets.all(16),
-              //         decoration: BoxDecoration(borderRadius: BorderRadius.circular(25),color: Color.fromARGB(255, 46, 189, 221)),
-              //         child: 
-              //         Column(
-              //           crossAxisAlignment: CrossAxisAlignment.start,
-              //           children: [
-              //             Text("Bot",style: TextStyle(fontSize:14,fontFamily: 'MadimiOne',color: Colors.purple ),),
-              //             const SizedBox(height: 12,),
-              //             Text("Invalid Response",style: const TextStyle(color: Colors.black,fontSize: 15,height: 1.2),),
-              //           ],
-              //         ));
+              // return SizedBox();
+              return AlertDialog(
+                title: const Text("Error"),
+                content: const Text('Try again later!'),
+              );
+              
             }
           },
         )

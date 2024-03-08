@@ -12,3 +12,9 @@ class ChatSuccessState extends ChatBlocState {
     required this.messages,
   });
 }
+class ChatFalseState extends ChatBlocState {
+  final List<ChatMessageModel> messages;
+  ChatFalseState({
+    required this.messages,
+  });
+}

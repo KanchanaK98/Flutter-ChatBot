@@ -26,6 +26,9 @@ bool generating = false;
      {
       messages.add(ChatMessageModel(role: 'model', parts: [ChatPartModel(text: generatedText)]));
       emit(ChatSuccessState(messages: messages));
+     }else{
+      messages.add(ChatMessageModel(role: 'model', parts: [ChatPartModel(text: generatedText)]));
+      emit(ChatFalseState(messages: messages));
      }
      generating = false;
   }
